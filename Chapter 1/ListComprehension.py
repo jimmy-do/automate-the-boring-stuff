@@ -6,5 +6,5 @@ for n in nums:
         evens.append(n)
 print(evens)
 
-evenss = [n % 2 == 0 for n in nums]
-print(evenss)
+evens1 = [n % 2 == 0 for n in nums]
+print(evens1)
