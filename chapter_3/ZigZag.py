@@ -1,4 +1,5 @@
-import time, sys
+import sys
+import time
 
 indent = 0
 indentIncreasing = True
