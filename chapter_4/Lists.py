@@ -1,6 +1,6 @@
 listyList = ['cat', 'aardvark', 'aardvark', 'elephant']
 for i in listyList:
-    print(f'{i}')
+    print(i)
 
 print(listyList)
 

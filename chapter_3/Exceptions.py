@@ -1,6 +1,6 @@
-def spam(divideBy):
+def spam(divideby):
     try:
-        return 42 / divideBy
+        return 42 / divideby
     except ZeroDivisionError:
         return 'Sorry, invalid denominator.'
 
