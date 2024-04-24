@@ -29,7 +29,7 @@ def display_inventory(inventory):
 
 def add_to_inventory(inventory, loot):
     for item in loot:
-        inventory.setdefault(item,0)
+        inventory.setdefault(item, 0)
         inventory[item] += 1
 
 
