@@ -12,8 +12,11 @@
 # 1 dagger
 #
 # Total number of items: 62”
+#
+# Now, also add another function to add more inventory items i.e. increase value of respective keys.
 
 stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+phat_lewtz = ['gold coin', 'dagger', 'arrow', 'greatsword']
 
 
 def display_inventory(inventory):
@@ -24,4 +27,11 @@ def display_inventory(inventory):
     print(f"The total number of items in your inventory is: {total}")
 
 
+def add_to_inventory(inventory, loot):
+    for item in loot:
+        inventory.setdefault(item, 0)
+        inventory[item] += 1
+
+
+add_to_inventory(stuff, phat_lewtz)
 display_inventory(stuff)
