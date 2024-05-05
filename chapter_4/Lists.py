@@ -9,4 +9,7 @@ listOfGames = [['Fortnite', 'Counterstrike,', 'Valorant', 'Overwatch'], ['World 
 for g in listOfGames:
     print(g)
 
+for game in range(len(listOfGames)):
+    print(game)
+
 print(listOfGames)
