@@ -20,4 +20,4 @@ def is_phone_number(text):
 
 
 print(is_phone_number('415-555-4242'))  # Yes, a phone number!
-print(is_phone_number('Mochi Ice Cream'))  # Unfortunately, not a phone number.
+print(is_phone_number('Mochi Ice Cream'))  # Unfortunately, not a phone number!
