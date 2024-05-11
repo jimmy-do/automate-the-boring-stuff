@@ -25,10 +25,13 @@ print(is_phone_number('415-555-4242'))  # Yes, a phone number!
 print(is_phone_number('Mochi Ice Cream'))  # Unfortunately, not a phone number!
 
 is_phone_regex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
-mo = is_phone_regex.search('Check this entire string for a US phone number 415-55-4242')
+mo = is_phone_regex.search('Check this entire string for a US phone number 415-555-4242')
 
 if mo:
     print('US phone number found: ' + mo.group())
 else:
     print('No US phone number found')
 
+is_phone_regex2 = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
+mo2 = is_phone_regex2.search('Check this entire string for a US phone number 555-4242')
+print(mo2.group())
