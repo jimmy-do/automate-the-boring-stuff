@@ -71,3 +71,11 @@ print(vowelRegex.findall('RoboCop eats baby food. BABY FOOD.'))
 
 vowelRegex = re.compile('[a-zA-Z0-9]') # Regex object will include all lower and upper case + digits
 print(vowelRegex.findall('RoboCop eats baby food. BABY FOOD.'))
+
+# ^ or $ will implement 'starts with' or 'ends with' matching
+
+startsWithRegex = re.compile(r'^Hello')
+print(startsWithRegex.search('Hello test me out').group())
+
+startsWithRegex = re.compile(r'Hello$')
+print(startsWithRegex.search('Test me out... Hello').group() is None) # False, matches Hello at end
