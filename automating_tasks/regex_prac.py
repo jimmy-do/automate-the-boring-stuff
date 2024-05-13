@@ -1,5 +1,26 @@
 import re
 
+"""
+
+• The ? matches zero or one of the preceding group.
+• The * matches zero or more of the preceding group.
+• The + matches one or more of the preceding group.
+• The {n} matches exactly n of the preceding group.
+• The {n,} matches n or more of the preceding group.
+• The {,m} matches 0 to m of the preceding group.
+• The {n,m} matches at least n and at most m of the preceding group.
+• {n,m}? or *? or +? performs a non-greedy match of the preceding group.
+• ^spam means the string must begin with spam.
+• spam$ means the string must end with spam.
+• The . matches any character, except newline characters.
+• \d, \w, and \s match a digit, word, or space character, respectively.
+• \D, \W, and \S match anything except a digit, word, or space character,
+respectively.
+• [abc] matches any character between the brackets (such as a, b, or c).
+• [^abc] matches any character that isn’t between the brackets.
+
+"""
+
 # The | operator will include either result. It will match the first occurrence:
 
 batRegex = re.compile(r'Batman|Batwoman')
@@ -72,10 +93,41 @@ print(vowelRegex.findall('RoboCop eats baby food. BABY FOOD.'))
 vowelRegex = re.compile('[a-zA-Z0-9]') # Regex object will include all lower and upper case + digits
 print(vowelRegex.findall('RoboCop eats baby food. BABY FOOD.'))
 
-# ^ or $ will implement 'starts with' or 'ends with' matching
+# ^ and $ symbols can be used to search regex that starts and/or ends with with specified pattern
 
-startsWithRegex = re.compile(r'^Hello')
-print(startsWithRegex.search('Hello test me out').group())
+beginsWithHello = re.compile(r'^Hello') # String must start with Hello
+print(beginsWithHello.search('Hello is it me you\'re looking for').group())
 
-startsWithRegex = re.compile(r'Hello$')
-print(startsWithRegex.search('Test me out... Hello').group() is None) # False, matches Hello at end
+endsWithHello = re.compile(r'Hello$') # Sting must end with Hello
+print(endsWithHello.search('Why, Hello').group())
+
+endsWithDigit = re.compile(r'\d$')
+print(endsWithDigit.search('19').group() is not None)
+
+# The Wildcard (.) character
+
+whereTheAtsAt = re.compile(r'.at')
+print(whereTheAtsAt.findall('Where the ats at I need that as an expat and that\'s that'))
+
+# Matching everything with dot star
+
+matchEverythingGreedy = re.compile(r'<.*>')
+print(matchEverythingGreedy.search('<Match every single> character>').group())
+
+matchEverythingNonGreedy = re.compile(r'<.*?>')
+print(matchEverythingNonGreedy.search('<Match every single> character>').group())
+
+# Matching new lines with the dot operator
+
+noNewlineRegex = re.compile(r'.*')
+print(noNewlineRegex.search('Serve the public trust.\nProtect the innocent.'
+                       '\nUphold the law.').group())
+
+newlineRegex = re.compile(r'.*', re.DOTALL)
+print(newlineRegex.search('Serve the public trust.\nProtect the innocent.'
+                       '\nUphold the law.').group())
+
+# Ignoring casing with re.I
+
+robocop = re.compile('robocop', re.IGNORECASE)
+print(robocop.search('ROBOCOP protects the innocent.').group())
