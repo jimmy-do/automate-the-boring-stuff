@@ -131,3 +131,21 @@ print(newlineRegex.search('Serve the public trust.\nProtect the innocent.'
 
 robocop = re.compile('robocop', re.IGNORECASE)
 print(robocop.search('ROBOCOP protects the innocent.').group())
+
+# Substituing Strings with the sub() method
+
+secretAgentsRegex = re.compile(r'Agent \w+')
+print(secretAgentsRegex.sub('CENSORED', 'Agent Alice gave the documents to Agent Bob.'))
+
+# Managing complex regexes
+
+phoneRegex = re.compile(r'''(
+(\d{3}|\(\d{3}\))? # area code
+(\s|-|\.)? # separator
+\d{3} # first 3 digits
+(\s|-|\.) # separator
+\d{4} # last 4 digits
+(\s*(ext|x|ext.)\s*\d{2,5})? # extension
+)''', re.VERBOSE)
+
+print(phoneNumberRegex.search('The number is: 555-123-1234') is not None) # True
